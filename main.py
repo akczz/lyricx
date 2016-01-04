@@ -46,10 +46,12 @@ lyrics = lyrics[0]
 #Relacing \n \r n \
 lyrics_newline = lyrics.replace("\\n","<br />")
 lyrics_slash = lyrics_newline.replace("\\","")
-lyrics_final = lyrics_slash.replace("\\r","")
+lyrics_quote = lyrics_slash.replace("\\r","")
+lyrics_final = lyrics_quote.replace("xe2x80x99","'")
+
 
 path1 = open(loc,'a')
-head = song+" BY "+artist+"<br />"
+head = "<h3> **"+song+" BY "+artist+"** </h3> <br /><hr />"
 head = head.upper()
 path1.write(head)
 path1.write(lyrics_final)
