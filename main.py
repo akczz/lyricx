@@ -13,13 +13,13 @@ try:
 except:
  abc = input('Not Found! Close and Try Again')
 
-path = open('/sdcard/lyrics/test.txt','w')
+path = open('e:/lyrix/test.txt','w')
 path.write(data)
 path.close()
 #^full webpage to test.txt
 
-path = open('/sdcard/lyrics/test.txt','r')
-loc = '/sdcard/lyrics/'+song+'.html'
+path = open('e:/lyrix/test.txt','r')
+loc = 'e:/lyrix/'+song+'.html'
 path1 = open(loc,'w')
 #^Creating file for sorted data
 
