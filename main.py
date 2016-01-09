@@ -1,25 +1,40 @@
+# Author : Ash-Ishh..
+
 import urllib.request
 import re
+import os
+
+def checkdir(a):
+    if not os.path.exists(a):
+        os.makedirs(a)
 
 
-song = input('Song Name? (singforthemoment)\n')
-artist = input('Artist Name? (eminem)  \n')
+while True:
+ try:
+  song = input('Song Name? (singforthemoment)\n')
+  artist = input('Artist Name? (eminem)  \n')
 
-url="http://www.azlyrics.com/lyrics/"+artist+"/"+song+".html"
+  url="http://www.azlyrics.com/lyrics/"+artist+"/"+song+".html"
 
-try:
- req = urllib.request.urlopen(url)
- data = str(req.read()) #full_webpage
-except:
- abc = input('Not Found! Close and Try Again')
 
-path = open('e:/lyrix/test.txt','w')
+  req = urllib.request.urlopen(url)
+  data = str(req.read()) #full_webpage
+  break
+ except Exception as e:
+  print("\n\n")
+  print(e)
+  print("Try Again! !_!\n\n")
+
+
+
+checkdir('c:/lyrix')
+path = open('c:/lyrix/test.txt','w')
 path.write(data)
 path.close()
 #^full webpage to test.txt
 
-path = open('e:/lyrix/test.txt','r')
-loc = 'e:/lyrix/'+song+'.html'
+path = open('c:/lyrix/test.txt','r')
+loc = 'c:/lyrix/'+song+'.html'
 path1 = open(loc,'w')
 #^Creating file for sorted data
 
@@ -62,4 +77,4 @@ path1.write('''
 )
 path1.close()
 
-print("Done :) Check the lyrics Folder!")
+print("Done :) Check the lyrics Folder! ("+loc+")")
