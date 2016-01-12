@@ -44,8 +44,8 @@ path1.write('''
 <html>
 <style type="text/css">
 body {
-background-color:#51caf2;
-color:white
+background-color:#000000;
+color:00FF00;
 }
 
 
