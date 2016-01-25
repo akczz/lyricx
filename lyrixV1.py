@@ -23,7 +23,7 @@ while True:
   print(str(e)+'\nTry Again !_!')
 
 startTime = datetime.now()
-match = r'<a href="../lyrics/'+artist
+match = r'<a href="../lyrics/'+ artist
 match1 =r'/(\w+).html"'
 fmatch = match + match1
 # fmatch = <a href="../lyrics/'+artist/(\w+).html"
@@ -31,10 +31,10 @@ fmatch = match + match1
 
 regex = re.findall(fmatch,data)
 
-path = '/sdcard/lyrics'+'/'+artist
+path = 'c:/lyrics/'+ artist
 checkdir(path)
 
-regex = regex[170:]
+
 for song in regex:
  url0 ="http://www.azlyrics.com/lyrics/"+artist+"/"+song+".html"
  try:
@@ -43,7 +43,7 @@ for song in regex:
  except:
   data0 = "null"
  test = path + '/test.html'
- loc = path +'/' + song + '.html'
+ loc = path + '/' + song + '.html'
  path0 = open(test,'w')
  path0.write(data0)
  path0.close()
@@ -96,7 +96,7 @@ color:#00FF00
 
  print('>> '+str(i)+" : "+str(song),"Done! ^_^")
  i += 1
- time.sleep(5)
+
  #If we will not use time interval azlyrics will detect us as robot block our ip for godmn week.
 
 print("Over!")
