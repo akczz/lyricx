@@ -1,9 +1,6 @@
-# lyricx
+# lyrix
 
-Python 3 Script to parse lyrics from atozlytics.com and save it as html file
-It takes artists and songs name as input.
+Script saves lyrics of given song as html file.
 
-note: enter names without space
+Download source : www.azlyrics.com
 
-e.g: song name : bitchdontkillmyvibe
-     artist name : kendricklamar
