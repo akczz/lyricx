@@ -29,13 +29,13 @@ def start():
     song = song.title()
     artist = artist.title()
     
-    checkdir('c:\lyrix\'+artist)
+    checkdir('c:\\lyrix\\'+artist)
     lyrics = re.findall(r'Sorry about that. -->(.*)<form id="addsong"',str(data))
     lyrics = lyrics[0].encode('ascii','ignore').decode()
     lyrics_final = lyrics.replace('\\n','<br />').replace('\\r','').replace('\\','')
   
 
-    file_location = 'c:\lyrix\{0}\{1}.html'.format(artist,song)
+    file_location = 'c:\\lyrix\\{0}\\{1}.html'.format(artist,song)
     with open(file_location,'w') as fo:
 #↓HTML tags in it
         
