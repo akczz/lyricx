@@ -15,7 +15,7 @@ def start():
         song = input('Song Name :\n>> ')
         artist = input('Artist Name :\n>> ')
 
-        url="http://www.azlyrics.com/lyrics/{0}/{1}.html".format(artist.replace(' ',''),song.replace(' ',''))
+        url="http://www.azlyrics.com/lyrics/{0}/{1}.html".format(artist.replace(' ','').lower(),song.replace(' ','').lower())
 
         req = urllib.request.urlopen(url)
         data = req.read() #full_webpage      
