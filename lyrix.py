@@ -1,16 +1,15 @@
-# Author : Ash-Ishh..
-# <mr.akc@outlook.com>
+# ash-ishh.. <mr.akc@outlook.com>
 
 import urllib.request
 import re
 import os
-import sys
 
-def checkdir(a):
-    if not os.path.exists(a):
-        os.makedirs(a)
+def checkdir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
-def start():
+## ## ## ## ## ## ## ## ## ## ## ##
+def main():
     try:
         song = input('Song Name :\n>> ')
         artist = input('Artist Name :\n>> ')
@@ -23,22 +22,23 @@ def start():
     except Exception as e:
         print("\n\n"+str(e))
         print("Try Again! !_!\n\n")
-        start()
+        main()
 
       
     song = song.title()
     artist = artist.title()
-    
-    checkdir('c:\\lyrix\\'+artist)
+    base_path = "c:\\lyrix\\"
+   
+    checkdir(base_path+artist)
     lyrics = re.findall(r'Sorry about that. -->(.*)<form id="addsong"',str(data))
     lyrics = lyrics[0].encode('ascii','ignore').decode()
     lyrics_final = lyrics.replace('\\n','<br />').replace('\\r','').replace('\\','')
   
 
-    file_location = 'c:\\lyrix\\{0}\\{1}.html'.format(artist,song)
+    file_location = (base_path+'{0}\\{1}.html').format(artist,song)
     with open(file_location,'w') as fo:
-#↓HTML tags in it
-        
+
+    #HTML tags in in file   
         fo.write('''
 <html>
 <style type="text/css">
@@ -52,9 +52,10 @@ color:#00FF00
 
 <body>
 '''    )
-  
-    with open(file_location,'a') as fo:
-        head = "<h3> **"+song+" - "+artist+"** </h3> <br /><hr />"
+
+
+        head = "<h3> ** {0} - {1} ** </h3> <br /><hr />".format(artist,song)
+        
         fo.write(head.upper())
         fo.write(lyrics_final)
         fo.write('''
@@ -68,7 +69,8 @@ color:#00FF00
     if option == 'yo':
         start()
     else:
-        sys.exit()
+        exit(0)
 
 if __name__ == '__main__':
-    start()
+    print("Lyrix".center(40,'-'))
+    main()
